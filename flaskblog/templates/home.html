@@ -13,7 +13,7 @@
             </h3>
             <p class="text-white mb-3">Check out posts from out community members. Join the discussion and post your work too.</p>
             <div class="btn-wrapper">
-              <a href="examples/register-page.html" class="btn btn-simple btn-primary btn-round">Create Post</a>
+              <a href="{{ url_for('posts.new_post') }}" class="btn btn-simple btn-primary btn-round">Create Post</a>
             </div>
           </div>
         </div>
@@ -21,8 +21,8 @@
     </div>
     {% for post in posts.items %}
 
-        <article class="media content-section" style="padding-top: 50px;">
-          <img class="img-fluid rounded-circle shadow" style="width: 150px;" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+        <article class="media content-section" style="padding-top: 30px;">
+          <img class="img-fluid rounded-circle shadow" style="width: 150px; padding: 10px" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
