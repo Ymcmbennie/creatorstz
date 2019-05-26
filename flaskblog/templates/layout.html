@@ -27,7 +27,7 @@
   <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/blk-design-system/index.html" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="{{ url_for('main.home') }}" rel="tooltip" title="Designed and Coded by Benson Sanga" data-placement="bottom" target="_blank">
           <span>CTZ</span> Creators Tz
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,6 +52,44 @@
           </div>
         </div>
         <ul class="navbar-nav">
+          <li class="dropdown nav-item">
+              {% if current_user.is_authenticated %}
+                <a href="{{ url_for('main.about') }}" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <i class="fa fa-cogs d-lg-none d-xl-none"></i> Account
+                </a>
+                <div class="dropdown-menu dropdown-with-icons">
+                  <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
+                    <i class="tim-icons icon-paper"></i> Documentation
+                  </a>
+                  <a href="examples/register-page.html" class="dropdown-item">
+                    <i class="tim-icons icon-bullet-list-67"></i>Security Settings
+                  </a>
+                  <a href="examples/landing-page.html" class="dropdown-item">
+                    <i class="tim-icons icon-image-02"></i>Report Errors
+                  </a>
+                  <a href="examples/profile-page.html" class="dropdown-item">
+                    <i class="tim-icons icon-single-02"></i>Profile Page
+                  </a>
+              {% else %}
+                <a href="{{ url_for('main.about') }}" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                  <i class="fa fa-cogs d-lg-none d-xl-none"></i> Getting started
+                </a>
+                <div class="dropdown-menu dropdown-with-icons">
+                  <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
+                    <i class="tim-icons icon-paper"></i> Documentation
+                  </a>
+                  <a href="examples/register-page.html" class="dropdown-item">
+                    <i class="tim-icons icon-bullet-list-67"></i>Sign Up
+                  </a>
+                  <a href="examples/landing-page.html" class="dropdown-item">
+                    <i class="tim-icons icon-image-02"></i>Explore
+                  </a>
+                  <a href="examples/profile-page.html" class="dropdown-item">
+                    <i class="tim-icons icon-single-02"></i>Sign In
+                  </a>
+              {% endif %}
+            </div>
+          </li>
           <li class="nav-item p-0">
             <a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/creatorstz" target="_blank">
               <i class="fab fa-twitter"></i>
@@ -70,53 +108,17 @@
               <p class="d-lg-none d-xl-none">Instagram</p>
             </a>
           </li>
-          <li class="dropdown nav-item">
-              {% if current_user.is_authenticated %}
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <i class="fa fa-cogs d-lg-none d-xl-none"></i> Account
-                </a>
-                <div class="dropdown-menu dropdown-with-icons">
-                  <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
-                    <i class="tim-icons icon-paper"></i> Documentation
-                  </a>
-                  <a href="examples/register-page.html" class="dropdown-item">
-                    <i class="tim-icons icon-bullet-list-67"></i>Security Settings
-                  </a>
-                  <a href="examples/landing-page.html" class="dropdown-item">
-                    <i class="tim-icons icon-image-02"></i>Report Errors
-                  </a>
-                  <a href="examples/profile-page.html" class="dropdown-item">
-                    <i class="tim-icons icon-single-02"></i>Profile Page
-                  </a>
-              {% else %}
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <i class="fa fa-cogs d-lg-none d-xl-none"></i> Getting started
-                </a>
-                <div class="dropdown-menu dropdown-with-icons">
-                  <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
-                    <i class="tim-icons icon-paper"></i> Documentation
-                  </a>
-                  <a href="examples/register-page.html" class="dropdown-item">
-                    <i class="tim-icons icon-bullet-list-67"></i>Register Page
-                  </a>
-                  <a href="examples/landing-page.html" class="dropdown-item">
-                    <i class="tim-icons icon-image-02"></i>Landing Page
-                  </a>
-                  <a href="examples/profile-page.html" class="dropdown-item">
-                    <i class="tim-icons icon-single-02"></i>Profile Page
-                  </a>
-              {% endif %}
-            </div>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link btn btn-default d-none d-lg-block" href="javascript:void(0)" onclick="scrollToDownload()">
-              <i class="tim-icons icon-cloud-download-93"></i> Download
+              <i class="tim-icons icon-cloud-download-93"></i> Upload
             </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <div class="tophedge"></div>
   <!-- End Navbar -->
     <main role="main" class="container">
       <div class="row">
@@ -168,17 +170,17 @@
           <div class="col-md-3">
             <ul class="nav">
               <li class="nav-item">
-                <a href="https://creative-tim.com/contact-us" class="nav-link">
+                <a href="https:/bensonad.pro" class="nav-link">
                   Contact Us
                 </a>
               </li>
               <li class="nav-item">
-                <a href="https://creative-tim.com/about-us" class="nav-link">
+                <a href="https:/bensonad.pro" class="nav-link">
                   About Us
                 </a>
               </li>
               <li class="nav-item">
-                <a href="https://creative-tim.com/blog" class="nav-link">
+                <a href="https:/bensonad.pro" class="nav-link">
                   Blog
                 </a>
               </li>
@@ -192,13 +194,13 @@
           <div class="col-md-3">
             <h3 class="title">Follow us:</h3>
             <div class="btn-wrapper profile">
-              <a target="_blank" href="https://twitter.com/creativetim" class="btn btn-icon btn-neutral btn-round btn-simple" data-toggle="tooltip" data-original-title="Follow us">
+              <a target="_blank" href="https://twitter.com/creatorstz" class="btn btn-icon btn-neutral btn-round btn-simple" data-toggle="tooltip" data-original-title="Follow us">
                 <i class="fab fa-twitter"></i>
               </a>
-              <a target="_blank" href="https://www.facebook.com/creativetim" class="btn btn-icon btn-neutral btn-round btn-simple" data-toggle="tooltip" data-original-title="Like us">
+              <a target="_blank" href="https://www.facebook.com/creatorstz" class="btn btn-icon btn-neutral btn-round btn-simple" data-toggle="tooltip" data-original-title="Like us">
                 <i class="fab fa-facebook-square"></i>
               </a>
-              <a target="_blank" href="https://dribbble.com/creativetim" class="btn btn-icon btn-neutral  btn-round btn-simple" data-toggle="tooltip" data-original-title="Follow us">
+              <a target="_blank" href="https://dribbble.com/creatorstz" class="btn btn-icon btn-neutral  btn-round btn-simple" data-toggle="tooltip" data-original-title="Follow us">
                 <i class="fab fa-dribbble"></i>
               </a>
             </div>

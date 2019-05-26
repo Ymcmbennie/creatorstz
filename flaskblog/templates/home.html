@@ -1,8 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
+  <div class="section section-signup">
+      <div class="container">
+        <div class="squares square-1"></div>
+        <div class="squares square-2"></div>
+        <div class="squares square-3"></div>
+        <div class="squares square-4"></div>
+        <div class="row row-grid justify-content-between align-items-center">
+          <div class="col-lg-6">
+            <h3 class="display-3 text-white">
+              <span class="text-white">Community Posts</span>
+            </h3>
+            <p class="text-white mb-3">Check out posts from out community members. Join the discussion and post your work too.</p>
+            <div class="btn-wrapper">
+              <a href="examples/register-page.html" class="btn btn-simple btn-primary btn-round">Create Post</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     {% for post in posts.items %}
-        <article class="media content-section">
-          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+
+        <article class="media content-section" style="padding-top: 50px;">
+          <img class="img-fluid rounded-circle shadow" style="width: 150px;" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
@@ -12,16 +32,23 @@
             <p class="article-content">{{ post.content }}</p>
           </div>
         </article>
+
     {% endfor %}
+    <ul class="pagination pagination-primary">
     {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
       {% if page_num %}
-        {% if posts.page == page_num %}
-          <a class="btn btn-info mb-4" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
-        {% else %}
-          <a class="btn btn-outline-info mb-4" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
-        {% endif %}
+          {% if posts.page == page_num %}
+            <li class="page-item active">
+              <a class="page-link" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+            </li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+            </li>
+          {% endif %}
       {% else %}
         ...
       {% endif %}
     {% endfor %}
+    </ul>
 {% endblock content %}
