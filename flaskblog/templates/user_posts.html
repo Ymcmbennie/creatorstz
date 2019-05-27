@@ -1,6 +1,164 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1 class="mb-3">Posts by {{ user.username }} ({{ posts.total }})</h1>
+      <div class="wrapper">
+        <div class="page-header">
+          <img src="{{ url_for('static', filename='assets/img/dots.png') }}" class="dots">
+          <img src="{{ url_for('static', filename='assets/img/path4.png') }}" class="path">
+          <div class="container align-items-center">
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <h1 class="profile-title text-left">{{ user.username }}</h1>
+                <h5 class="text-on-back">{{ posts.total }}</h5>
+                <p class="profile-description">Offices parties lasting outward nothing age few resolve. Impression to discretion understood to we interested he excellence.</p>
+                <div class="btn-wrapper profile pt-3">
+                  <a target="_blank" href="https://twitter.com/creativetim" class="btn btn-icon btn-twitter btn-round" data-toggle="tooltip" data-original-title="Follow us">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a target="_blank" href="https://www.facebook.com/creativetim" class="btn btn-icon btn-facebook btn-round" data-toggle="tooltip" data-original-title="Like us">
+                    <i class="fab fa-facebook-square"></i>
+                  </a>
+                  <a target="_blank" href="https://dribbble.com/creativetim" class="btn btn-icon btn-dribbble  btn-round" data-toggle="tooltip" data-original-title="Follow us">
+                    <i class="fab fa-dribbble"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 mt-5 col-md-6 ml-auto mr-auto">
+                <div class="card mt-5 card-coin card-plain">
+                  <div class="card-header">
+                    <img src="{{ url_for('static', filename='profile_pics/' + user.image_file) }}" class="img-center img-fluid rounded-circle">
+                    <h4 class="title">Designer</h4>
+                  </div>
+                  <div class="card-body">
+                    <ul class="nav nav-tabs nav-tabs-primary justify-content-center">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#linka">
+                          About
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#linkb">
+                          Skills
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#linkc">
+                          Contact
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="tab-content tab-subcategories">
+                      <div class="tab-pane active" id="linka">
+                        <div class="table-responsive">
+                          <table class="table tablesorter " id="plain-table">
+                            <thead class=" text-primary">
+                              <tr>
+                                <th class="header">
+                                  COIN
+                                </th>
+                                <th class="header">
+                                  AMOUNT
+                                </th>
+                                <th class="header">
+                                  VALUE
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  BTC
+                                </td>
+                                <td>
+                                  7.342
+                                </td>
+                                <td>
+                                  48,870.75 USD
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  ETH
+                                </td>
+                                <td>
+                                  30.737
+                                </td>
+                                <td>
+                                  64,53.30 USD
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  XRP
+                                </td>
+                                <td>
+                                  19.242
+                                </td>
+                                <td>
+                                  18,354.96 USD
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="tab-pane" id="linkb">
+                        <div class="row">
+                          <label class="col-sm-3 col-form-label">Pay to</label>
+                          <div class="col-sm-9">
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="e.g. 1Nasd92348hU984353hfid">
+                              <span class="form-text">Please enter a valid address.</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <label class="col-sm-3 col-form-label">Amount</label>
+                          <div class="col-sm-9">
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="1.587">
+                            </div>
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-simple btn-primary btn-icon btn-round float-right"><i class="tim-icons icon-send"></i></button>
+                      </div>
+                      <div class="tab-pane" id="linkc">
+                        <div class="table-responsive">
+                          <table class="table tablesorter " id="plain-table">
+                            <thead class=" text-primary">
+                              <tr>
+                                <th class="header">
+                                  Latest Crypto News
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  The Daily: Nexo to Pay on Stable...
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Venezuela Begins Public of Nation...
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  PR: BitCanna – Dutch Blockchain...
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     {% for post in posts.items %}
         <article class="media content-section">
           <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
@@ -14,15 +172,21 @@
           </div>
         </article>
     {% endfor %}
+    <ul class="pagination pagination-primary">
     {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
       {% if page_num %}
-        {% if posts.page == page_num %}
-          <a class="btn btn-info mb-4" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
-        {% else %}
-          <a class="btn btn-outline-info mb-4" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
-        {% endif %}
+          {% if posts.page == page_num %}
+            <li class="page-item active">
+              <a class="page-link" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+            </li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+            </li>
+          {% endif %}
       {% else %}
         ...
       {% endif %}
     {% endfor %}
+    </ul>
 {% endblock content %}

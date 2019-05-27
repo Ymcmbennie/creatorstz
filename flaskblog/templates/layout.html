@@ -64,10 +64,10 @@
                   <a href="examples/register-page.html" class="dropdown-item">
                     <i class="tim-icons icon-bullet-list-67"></i>Security Settings
                   </a>
-                  <a href="examples/landing-page.html" class="dropdown-item">
+                  <a href="{{ url_for('main.about') }}" class="dropdown-item">
                     <i class="tim-icons icon-image-02"></i>Report Errors
                   </a>
-                  <a href="examples/profile-page.html" class="dropdown-item">
+                  <a href="{{ url_for('users.account') }}" class="dropdown-item">
                     <i class="tim-icons icon-single-02"></i>Profile Page
                   </a>
               {% else %}
@@ -75,16 +75,16 @@
                   <i class="fa fa-cogs d-lg-none d-xl-none"></i> Getting started
                 </a>
                 <div class="dropdown-menu dropdown-with-icons">
-                  <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
+                  <a href="{{ url_for('main.about') }}" class="dropdown-item">
                     <i class="tim-icons icon-paper"></i> Documentation
                   </a>
-                  <a href="examples/register-page.html" class="dropdown-item">
+                  <a href="{{ url_for('users.register') }}" class="dropdown-item">
                     <i class="tim-icons icon-bullet-list-67"></i>Sign Up
                   </a>
                   <a href="examples/landing-page.html" class="dropdown-item">
                     <i class="tim-icons icon-image-02"></i>Explore
                   </a>
-                  <a href="examples/profile-page.html" class="dropdown-item">
+                  <a href="{{ url_for('users.login') }}" class="dropdown-item">
                     <i class="tim-icons icon-single-02"></i>Sign In
                   </a>
               {% endif %}
@@ -121,7 +121,7 @@
   <!-- End Navbar -->
     <main role="main" class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md">
           {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
               {% for category, message in messages %}
