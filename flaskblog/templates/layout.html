@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static', filename='assets/img/apple-icon.png') }}">
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/img/favicon.png') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/logoc.png') }}">
   {% if title %}
         <title>CTZ - {{ title }}</title>
     {% else %}
@@ -64,8 +64,8 @@
                   <a href="examples/register-page.html" class="dropdown-item">
                     <i class="tim-icons icon-bullet-list-67"></i>Security Settings
                   </a>
-                  <a href="{{ url_for('main.about') }}" class="dropdown-item">
-                    <i class="tim-icons icon-image-02"></i>Report Errors
+                  <a href="{{ url_for('users.logout') }}" class="dropdown-item">
+                    <i class="tim-icons icon-image-02"></i>Log Out
                   </a>
                   <a href="{{ url_for('users.account') }}" class="dropdown-item">
                     <i class="tim-icons icon-single-02"></i>Profile Page
