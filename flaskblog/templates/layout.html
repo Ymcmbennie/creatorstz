@@ -58,10 +58,10 @@
                   <i class="fa fa-cogs d-lg-none d-xl-none"></i> Account
                 </a>
                 <div class="dropdown-menu dropdown-with-icons">
-                  <a href="https://demos.creative-tim.com/blk-design-system/docs/1.0/getting-started/overview.html" class="dropdown-item">
+                  <a href="{{ url_for('users.account') }}" class="dropdown-item">
                     <i class="tim-icons icon-paper"></i> Documentation
                   </a>
-                  <a href="examples/register-page.html" class="dropdown-item">
+                  <a href="{{ url_for('users.account') }}" class="dropdown-item">
                     <i class="tim-icons icon-bullet-list-67"></i>Security Settings
                   </a>
                   <a href="{{ url_for('users.logout') }}" class="dropdown-item">
@@ -81,7 +81,7 @@
                   <a href="{{ url_for('users.register') }}" class="dropdown-item">
                     <i class="tim-icons icon-bullet-list-67"></i>Sign Up
                   </a>
-                  <a href="examples/landing-page.html" class="dropdown-item">
+                  <a href="{{ url_for('users.account') }}" class="dropdown-item">
                     <i class="tim-icons icon-image-02"></i>Explore
                   </a>
                   <a href="{{ url_for('users.login') }}" class="dropdown-item">
@@ -111,7 +111,7 @@
 
           <li class="nav-item">
             <a class="nav-link btn btn-default d-none d-lg-block" href="javascript:void(0)" onclick="scrollToDownload()">
-              <i class="tim-icons icon-cloud-download-93"></i> Upload
+              <i class="tim-icons icon-cloud-download-93"></i> Cloud
             </a>
           </li>
         </ul>

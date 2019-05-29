@@ -41,13 +41,19 @@
                 </div>
                 <div class="form-group">
                     {{ form.picture.label() }}
-                    {{ form.picture(class="form-control-file") }}
+                    <div class="input-group">
+                       <div class="custom-file">
+                        {{ form.picture(class="custom-file-input") }}
+                        <label class="custom-file-label">Pick new profile picture</label>
+                      </div>
+                    </div>
                     {% if form.picture.errors %}
                         {% for error in form.picture.errors %}
                             <span class="text-danger">{{ error }}</span></br>
                         {% endfor %}
                     {% endif %}
                 </div>
+
             </fieldset>
             <div class="form-group">
                 {{ form.submit(class="btn btn-primary btn-round") }}
