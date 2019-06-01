@@ -4,7 +4,7 @@ from flask_login import current_user, login_required
 from flaskblog import db
 from flaskblog.models import Post
 from flaskblog.posts.forms import PostForm
-from flaskblog.users.utils import save_picture
+from flaskblog.users.utils import save_picture, save_media
 
 posts = Blueprint('posts', __name__)
 
@@ -16,7 +16,7 @@ def new_post():
     if form.validate_on_submit():
 
         if form.media.data:
-            media_file = save_picture(form.media.data)
+            media_file = save_media(form.media.data)
         post = Post(title=form.title.data, content=form.content.data,
                     media=media_file, author=current_user)
         db.session.add(post)

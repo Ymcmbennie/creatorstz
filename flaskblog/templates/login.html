@@ -13,7 +13,7 @@
               </h3>
               <p class="text-white mb-3">We are excited for you to join our community. Just fill the form below and show us you bust of creativity and talent</p>
               <div class="btn-wrapper">
-                <a href="examples/register-page.html" class="btn btn-info">Learn More</a>
+                <a href="examples/register-page.html" class="btn btn-primary btn-simple btn-round">Learn More</a>
               </div>
             </div>
             <div class="col-lg-6 mb-lg-auto">
@@ -54,12 +54,12 @@
                                 {% endif %}
                             </div>
                             <div class="form-check">
-                                {{ form.remember(class="form-check-input") }}
+                                {{ form.remember(class="bootstrap-switch") }}
                                 {{ form.remember.label(class="form-check-label") }}
                             </div>
                         </fieldset>
                         <div class="form-group">
-                            {{ form.submit(class="btn btn-outline-info") }}
+                            {{ form.submit(class="btn btn-primary btn-round") }}
                             <small class="text-muted ml-2">
                                 <a href="{{ url_for('users.reset_request') }}">Forgot Password?</a>
                             </small>
